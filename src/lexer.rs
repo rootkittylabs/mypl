@@ -9,6 +9,7 @@ pub enum Token {
     Equals,
     LeftPar,
     RightPar,
+    EOF,
 }
 
 pub struct Lexer {
@@ -51,7 +52,8 @@ impl Lexer {
             
             tokens.push(token);
         }
-
+        
+        tokens.push(Token::EOF);
         Ok(tokens)
     }
 
