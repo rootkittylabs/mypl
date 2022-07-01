@@ -12,14 +12,14 @@ pub enum Token {
     EOF,
 }
 
-pub struct Lexer {
-    input: String,
+pub struct Lexer<'a> {
+    input: &'a String,
     position: usize,
     current_character: Option<char>,
 }
 
-impl Lexer {
-    pub fn new(input: String) -> Lexer {
+impl <'a> Lexer <'a> {
+    pub fn new(input: &String) -> Lexer {
         Lexer {
             current_character: input.chars().next(),
             input,
